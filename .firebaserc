@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "simple-crm-fab32": {
+      "hosting": {
+        "simle-crm": [
+          "simple-crm-fab32"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "simple-crm-fab32"
+  }
+}

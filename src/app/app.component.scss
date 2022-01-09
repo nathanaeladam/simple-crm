@@ -11,11 +11,15 @@
 }
 
 .logo-container{
-    border-bottom: 1px solid rgba($color: #000000, $alpha: 0.25);
+    border-bottom: 1px solid rgba($color: #000000, $alpha: 0.05);
     min-height: 63px;
-    padding: 0 16px;
+    padding: 8px 16px;
     display: flex;
     align-items: center;
+
+    img{
+        width: calc(100% - 32px);
+    }
 }
 
 .sidenav-list{
@@ -35,11 +39,11 @@
         }
 
         &:hover{
-            background-color: rgba($color: #000000, $alpha: 0.1);
+            background-color: rgba($color: #000000, $alpha: 0.05);
         }
     }
 }
 
 .router-container{
-    padding: 16px 32px;
+    padding: 32px 32px;
 }
