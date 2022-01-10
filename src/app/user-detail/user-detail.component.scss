@@ -1,0 +1,41 @@
+.header {
+    min-height: 250px;
+    background-color: rgba(131, 0, 0, 0.5);
+    color: white;
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-end;
+
+    .main-info-container{
+        display: flex;
+        min-height: 80px;
+        align-items: center;
+
+        h2{
+            margin: 0;
+        }
+
+        img{
+            width: 64px;
+            height: 64px;
+            object-fit: cover;
+            border-radius: 100%;
+            margin-right: 16px
+        };
+    }
+}
+
+
+.address-card{
+    button{
+        position: absolute;
+        top: 0;
+        right: 0;
+    }
+}
+
+.edit-user-details-btn{
+    position: absolute;
+    right: 0;
+    top: 0;
+}
