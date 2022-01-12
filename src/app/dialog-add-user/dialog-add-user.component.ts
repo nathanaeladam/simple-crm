@@ -12,13 +12,23 @@ export class DialogAddUserComponent implements OnInit {
   user = new User();
   birthDate: Date;
   loading = false;
+  noSubmit = false;
 
   constructor(public dialogRef: MatDialogRef<DialogAddUserComponent>, private firestore: AngularFirestore) { }
 
   ngOnInit(): void {
   }
 
+  submit() {
+    this.saveUser();
+
+  }
+
   saveUser() {
+  /*  if (!this.user.birthDate) {
+      alert('we need to know your Birth Date')
+      return;
+    }*/
     this.loading = true;
     this.user.birthDate = this.birthDate.getTime();
     console.log("current user is", this.user);

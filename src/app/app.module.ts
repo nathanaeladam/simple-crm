@@ -22,11 +22,12 @@ import { AngularFireModule } from '@angular/fire/compat';
 import { environment } from '../environments/environment';
 import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
-import {MatCardModule} from '@angular/material/card';
+import { MatCardModule } from '@angular/material/card';
 import { UserDetailComponent } from './user-detail/user-detail.component';
-import {MatMenuModule} from '@angular/material/menu';
+import { MatMenuModule } from '@angular/material/menu';
 import { DialogEditUserdetailsComponent } from './dialog-edit-userdetails/dialog-edit-userdetails.component';
 import { DialogEditAddressComponent } from './dialog-edit-address/dialog-edit-address.component';
+import { CommonModule } from '@angular/common';
 
 
 
@@ -61,6 +62,7 @@ import { DialogEditAddressComponent } from './dialog-edit-address/dialog-edit-ad
     FormsModule,
     AngularFireModule.initializeApp(environment.firebase),
     AngularFirestoreModule,
+    CommonModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
