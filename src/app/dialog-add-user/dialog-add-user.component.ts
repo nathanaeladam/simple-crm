@@ -10,7 +10,7 @@ import { User } from 'src/models/user.class';
 })
 export class DialogAddUserComponent implements OnInit {
   user = new User();
-  birthDate: Date;
+  userBirthDate: Date;
   loading = false;
   noSubmit = false;
 
@@ -30,7 +30,7 @@ export class DialogAddUserComponent implements OnInit {
       return;
     }*/
     this.loading = true;
-    this.user.birthDate = this.birthDate.getTime();
+    this.user.birthDate = this.userBirthDate.getTime();
     console.log("current user is", this.user);
 
 
