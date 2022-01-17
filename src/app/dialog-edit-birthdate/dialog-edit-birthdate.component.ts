@@ -1,21 +1,20 @@
-import { convertUpdateArguments } from '@angular/compiler/src/compiler_util/expression_converter';
 import { Component, OnInit } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/compat/firestore';
-import { MatNativeDateModule } from '@angular/material/core';
 import { MatDialogRef } from '@angular/material/dialog';
 import { User } from 'src/models/user.class';
 
 @Component({
-  selector: 'app-dialog-edit-address',
-  templateUrl: './dialog-edit-address.component.html',
-  styleUrls: ['./dialog-edit-address.component.scss']
+  selector: 'app-dialog-edit-birthdate',
+  templateUrl: './dialog-edit-birthdate.component.html',
+  styleUrls: ['./dialog-edit-birthdate.component.scss']
 })
-export class DialogEditAddressComponent implements OnInit {
+export class DialogEditBirthdateComponent implements OnInit {
+
+  constructor(public dialogRef: MatDialogRef<DialogEditBirthdateComponent>, private firestore: AngularFirestore) { }
   user: User;
+  birthDate: Date;
   userId: any;
   loading = false;
-
-  constructor(public dialogRef: MatDialogRef<DialogEditAddressComponent>, private firestore: AngularFirestore) { }
 
   ngOnInit(): void {
   }
@@ -31,6 +30,7 @@ export class DialogEditAddressComponent implements OnInit {
         this.close();
       })
   }
+
 
   close() {
     this.dialogRef.close();

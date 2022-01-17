@@ -1,14 +1,14 @@
 <mat-card class="header">
     <button mat-icon-button class="edit-user-details-btn">
-        <mat-icon [matMenuTriggerFor]="menuHeader">more_vert</mat-icon>
-        <mat-menu #menuHeader="matMenu">
+        <mat-icon [matMenuTriggerFor]="menuUserDetails">more_vert</mat-icon>
+        <mat-menu #menuUserDetails="matMenu">
             <button (click)="editUserDetails()" mat-menu-item>Edit</button>
         </mat-menu>
     </button>
 
     <div class="main-info-container">
         <div>
-            <img src="./assets/img/profile.png" alt="">
+            <img src="./assets/img/profile.png">
         </div>
         <div>
             <h2>{{ user.firstName }} {{ user.lastName }} </h2>
@@ -19,8 +19,8 @@
 
 <mat-card class="address-card mt-32">
     <button mat-icon-button>
-        <mat-icon [matMenuTriggerFor]="menu">more_vert</mat-icon>
-        <mat-menu #menu="matMenu">
+        <mat-icon [matMenuTriggerFor]="menuAddress">more_vert</mat-icon>
+        <mat-menu #menuAddress="matMenu">
             <button (click)="editAddress()" mat-menu-item>Edit</button>
         </mat-menu>
     </button>
@@ -29,5 +29,20 @@
     <mat-card-content>
         {{ user.street }} <br>
         {{ user.zipCode }} {{ user.city }}
+    </mat-card-content>
+</mat-card>
+
+
+<mat-card class="address-card mt-32">
+    <button mat-icon-button>
+        <mat-icon [matMenuTriggerFor]="menuBirthDate">more_vert</mat-icon>
+        <mat-menu #menuBirthDate="matMenu">
+            <button (click)="editBirthdate()" mat-menu-item>Edit</button>
+        </mat-menu>
+    </button>
+
+    <mat-card-title>Birth Date</mat-card-title>
+    <mat-card-content>
+        {{ userBirthday }}
     </mat-card-content>
 </mat-card>

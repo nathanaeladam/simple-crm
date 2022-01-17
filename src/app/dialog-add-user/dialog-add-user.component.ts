@@ -25,10 +25,6 @@ export class DialogAddUserComponent implements OnInit {
   }
 
   saveUser() {
-  /*  if (!this.user.birthDate) {
-      alert('we need to know your Birth Date')
-      return;
-    }*/
     this.loading = true;
     this.user.birthDate = this.userBirthDate.getTime();
     console.log("current user is", this.user);
