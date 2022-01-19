@@ -12,15 +12,32 @@ export class DialogEditBirthdateComponent implements OnInit {
 
   constructor(public dialogRef: MatDialogRef<DialogEditBirthdateComponent>, private firestore: AngularFirestore) { }
   user: User;
-  birthDate: Date;
+  userBirthDate: Date;
   userId: any;
+  timestamp: number;
+
   loading = false;
 
   ngOnInit(): void {
   }
 
+
+
+  timeConverter(x: number) {
+    var a = new Date(x);
+    var months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+    var year = a.getFullYear();
+    var month = months[a.getMonth()];
+    var date = a.getDate();
+    var time = date + ' ' + month + ' ' + year;
+    return time;
+  }
+
   saveUser() {
     this.loading = true;
+    this.timestamp = this.userBirthDate.getTime();
+    this.user.birthDate = this.timeConverter(this.timestamp);
+
     this.firestore
       .collection('users')
       .doc(this.userId)

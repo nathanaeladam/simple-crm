@@ -11,8 +11,8 @@ import { User } from 'src/models/user.class';
 export class DialogAddUserComponent implements OnInit {
   user = new User();
   userBirthDate: Date;
+  timestamp: number;
   loading = false;
-  noSubmit = false;
 
   constructor(public dialogRef: MatDialogRef<DialogAddUserComponent>, private firestore: AngularFirestore) { }
 
@@ -21,14 +21,23 @@ export class DialogAddUserComponent implements OnInit {
 
   submit() {
     this.saveUser();
-
   }
+
+  timeConverter(x: number) {
+    var a = new Date(x);
+    var months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+    var year = a.getFullYear();
+    var month = months[a.getMonth()];
+    var date = a.getDate();
+    var time = date + ' ' + month + ' ' + year;
+    return time;
+  }
+
 
   saveUser() {
     this.loading = true;
-    this.user.birthDate = this.userBirthDate.getTime();
-    console.log("current user is", this.user);
-
+    this.timestamp = this.userBirthDate.getTime();
+    this.user.birthDate = this.timeConverter(this.timestamp);
 
     this.firestore
       .collection('users')

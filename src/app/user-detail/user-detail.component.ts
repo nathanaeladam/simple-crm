@@ -44,7 +44,6 @@ export class UserDetailComponent implements OnInit {
         .valueChanges()
         .subscribe((user: any) => {
           this.user = new User(user);
-          this.userBirthday = this.timeConverter(this.user.birthDate);
         })
     }
   }
