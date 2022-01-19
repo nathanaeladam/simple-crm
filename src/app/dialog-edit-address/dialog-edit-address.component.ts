@@ -11,7 +11,7 @@ import { User } from 'src/models/user.class';
   styleUrls: ['./dialog-edit-address.component.scss']
 })
 export class DialogEditAddressComponent implements OnInit {
-  user: User;
+  user: User = new User();
   userId: any;
   loading = false;
 

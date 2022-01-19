@@ -1,4 +1,8 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { AngularFireModule } from '@angular/fire/compat';
+import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
+import { MatDialogModule, MatDialogRef } from '@angular/material/dialog';
+import { environment } from 'src/environments/environment';
 
 import { DialogEditBirthdateComponent } from './dialog-edit-birthdate.component';
 
@@ -8,9 +12,17 @@ describe('DialogEditBirthdateComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ DialogEditBirthdateComponent ]
+      imports: [MatDialogModule, AngularFireModule.initializeApp(environment.firebase),
+        AngularFirestoreModule],
+      declarations: [DialogEditBirthdateComponent],
+      providers: [
+        {
+          provide: MatDialogRef,
+          useValue: {}
+        },
+      ],
     })
-    .compileComponents();
+      .compileComponents();
   });
 
   beforeEach(() => {

@@ -37,14 +37,16 @@ export class UserDetailComponent implements OnInit {
   }
 
   getUser() {
-    this.firestore
-      .collection('users')
-      .doc(this.userId)
-      .valueChanges()
-      .subscribe((user: any) => {
-        this.user = new User(user);
-        this.userBirthday = this.timeConverter(this.user.birthDate);
-      })
+    if (this.userId) {
+      this.firestore
+        .collection('users')
+        .doc(this.userId)
+        .valueChanges()
+        .subscribe((user: any) => {
+          this.user = new User(user);
+          this.userBirthday = this.timeConverter(this.user.birthDate);
+        })
+    }
   }
 
   editUserDetails() {
